@@ -29,6 +29,7 @@ class NavBar extends Component {
 					</Menu.Item>
 					<Menu.Item
 						as={NavLink}
+						exact
 						to="/events"
 						name="Events"
 					/>
