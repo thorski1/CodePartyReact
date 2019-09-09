@@ -7,6 +7,7 @@ import {
 	deleteEvent,
 	updateEvent
 } from "../eventActions";
+import LoadingComponent from "../../../app/layout/LoadingComponent";
 
 const actions = {
 	createEvent,
@@ -15,7 +16,8 @@ const actions = {
 };
 
 const mapState = state => ({
-	events: state.events
+	events: state.events,
+	loading: state.async.loading
 });
 
 class EventDashboard extends Component {
@@ -23,7 +25,8 @@ class EventDashboard extends Component {
 		this.props.deleteEvent(id);
 	};
 	render() {
-		const { events } = this.props;
+		const { events, loading } = this.props;
+		if (loading) return <LoadingComponent />;
 		return (
 			<div>
 				<Grid>
