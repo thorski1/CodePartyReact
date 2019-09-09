@@ -20,7 +20,7 @@ const EventDetailedSidebar = ({ attendees }) => {
 				Going
 			</Segment>
 			<Segment attached>
-				<Item.Group divided>
+				<Item.Group relaxed divided>
 					{attendees &&
 						attendees.map(attendee => (
 							<Item.Content

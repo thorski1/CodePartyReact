@@ -11,6 +11,7 @@ import {
 import { Button } from "semantic-ui-react";
 import TestPlaceInput from "./TestPlaceInput";
 import SimpleMap from "./SimpleMap";
+import { openModal } from "../modals/modalActions";
 
 const mapState = state => ({
 	data: state.test.data
@@ -18,7 +19,8 @@ const mapState = state => ({
 
 const actions = {
 	incrementCounter,
-	decrementCounter
+	decrementCounter,
+	openModal
 };
 
 class TestComponent extends Component {
@@ -44,7 +46,8 @@ class TestComponent extends Component {
 		const {
 			data,
 			incrementCounter,
-			decrementCounter
+			decrementCounter,
+			openModal
 		} = this.props;
 		return (
 			<div>
@@ -59,6 +62,13 @@ class TestComponent extends Component {
 					onClick={decrementCounter}
 					negative
 					content="Decrement"
+				/>
+				<Button
+					onClick={() =>
+						openModal("TestModal", { data: 42 })
+					}
+					color="teal"
+					content="Open Modal"
 				/>
 				<br />
 				<br />
