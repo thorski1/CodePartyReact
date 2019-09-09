@@ -6,13 +6,14 @@ class EventList extends Component {
 		const { events, deleteEvent } = this.props;
 		return (
 			<Fragment>
-				{events.map(event => (
-					<EventListItem
-						key={event.id}
-						event={event}
-						deleteEvent={deleteEvent}
-					/>
-				))}
+				{events &&
+					events.map(event => (
+						<EventListItem
+							key={event.id}
+							event={event}
+							deleteEvent={deleteEvent}
+						/>
+					))}
 			</Fragment>
 		);
 	}
