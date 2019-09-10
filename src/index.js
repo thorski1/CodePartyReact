@@ -12,7 +12,6 @@ import ScrollToTop from "./app/common/util/ScrollToTop";
 
 const store = configureStore();
 
-
 const rootEl = document.getElementById("root");
 
 let render = () => {
@@ -39,7 +38,9 @@ if (module.hot) {
 	});
 }
 
-render();
+store.firebaseAuthIsReady.then(() => {
+	render();
+});
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
