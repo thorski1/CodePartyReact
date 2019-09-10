@@ -9,7 +9,7 @@ const firebaseConfig = {
 	authDomain: "codeparty-c6656.firebaseapp.com",
 	databaseURL: "https://codeparty-c6656.firebaseio.com",
 	projectId: "codeparty-c6656",
-	storageBucket: "",
+	storageBucket: "codeparty-c6656.appspot.com",
 	messagingSenderId: "194127365104",
 	appId: "1:194127365104:web:6d4020a846af32a08ed335"
 };

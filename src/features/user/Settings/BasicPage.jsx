@@ -84,5 +84,5 @@ class BasicPage extends Component {
 export default reduxForm({
 	form: "userProfile",
 	enableReinitialize: true,
-	destrouOnUnmount: false
+	destroyOnUnmount: false
 })(BasicPage);
