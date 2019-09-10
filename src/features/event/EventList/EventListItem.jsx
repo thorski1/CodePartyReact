@@ -8,7 +8,7 @@ import {
 } from "semantic-ui-react";
 import EventListAttendee from "./EventListAttendee";
 import { Link } from "react-router-dom";
-import { format, parseISO } from "date-fns";
+import { format } from "date-fns";
 
 class EventListItem extends Component {
 	render() {
@@ -43,12 +43,14 @@ class EventListItem extends Component {
 				<Segment secondary>
 					<List horizontal>
 						{event.attendees &&
-							Object.values(event.attendees).map((attendee, index) => (
-								<EventListAttendee
-									key={index}
-									attendee={attendee}
-								/>
-							))}
+							Object.values(event.attendees).map(
+								(attendee, index) => (
+									<EventListAttendee
+										key={index}
+										attendee={attendee}
+									/>
+								)
+							)}
 					</List>
 				</Segment>
 				<Segment clearing>
