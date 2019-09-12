@@ -6,7 +6,7 @@ import {
 	Button
 } from "semantic-ui-react";
 import EventDetailedMap from "./EventDetailedMap";
-import { format, parseISO } from "date-fns";
+import { format } from "date-fns";
 
 const EventDetailedInfo = ({ event }) => {
 	const [isMapOpen, showMapToggle] = useState(false);
@@ -35,10 +35,10 @@ const EventDetailedInfo = ({ event }) => {
 						{event.date && (
 							<span>
 								{format(
-									parseISO(event.date),
+									event.date.toDate(),
 									"EEEE, LLLL do"
 								)}{" "}
-								at {format(parseISO(event.date), "h:mm a")}
+								at {format(event.date.toDate(), "h:mm a")}
 							</span>
 						)}
 					</Grid.Column>
