@@ -3,8 +3,7 @@ import {
 	Segment,
 	Item,
 	Header,
-	Grid,
-	Image
+	Grid
 } from "semantic-ui-react";
 import { differenceInYears } from "date-fns";
 import LazyLoad from "react-lazyload";
