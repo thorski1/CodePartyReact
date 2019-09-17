@@ -10,7 +10,8 @@ const UserPhotos = ({
 	photos,
 	profile,
 	deletePhoto,
-	setMainPhoto
+	setMainPhoto,
+	loading
 }) => {
 	let filteredPhotos;
 	if (photos) {
@@ -38,6 +39,7 @@ const UserPhotos = ({
 									onClick={() => setMainPhoto(photo)}
 									basic
 									color="green"
+									loading={loading}
 								>
 									Main
 								</Button>
