@@ -52,11 +52,7 @@ class NavBar extends Component {
 								to="/people"
 								name="People"
 							/>
-							<Menu.Item
-								as={NavLink}
-								to="/test"
-								name="Test"
-							/>
+							
 							<Menu.Item>
 								<Button
 									as={Link}

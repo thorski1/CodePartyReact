@@ -64,10 +64,7 @@ class App extends Component {
 											EventForm
 										)}
 									/>
-									<Route
-										path="/test"
-										component={TestComponent}
-									/>
+									
 									<Route component={NotFound} />
 								</Switch>
 							</Container>
