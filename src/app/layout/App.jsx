@@ -15,6 +15,7 @@ import {
 } from "react-router-dom";
 import TestComponent from "../../features/testarea/TestComponent";
 import ModalManager from "../../features/modals/ModalManager";
+import { UserIsAuthenticated } from '../../features/auth/authWrapper'
 
 class App extends Component {
 	render() {
@@ -40,19 +41,27 @@ class App extends Component {
 									/>
 									<Route
 										path="/people"
-										component={PeopleDashboard}
+										component={UserIsAuthenticated(
+											PeopleDashboard
+										)}
 									/>
 									<Route
 										path="/profile/:id"
-										component={UserDetailedPage}
+										component={UserIsAuthenticated(
+											UserDetailedPage
+										)}
 									/>
 									<Route
 										path="/settings"
-										component={SettingsDashboard}
+										component={UserIsAuthenticated(
+											SettingsDashboard
+										)}
 									/>
 									<Route
 										path={["/createEvent", "/manage/:id"]}
-										component={EventForm}
+										component={UserIsAuthenticated(
+											EventForm
+										)}
 									/>
 									<Route
 										path="/test"
