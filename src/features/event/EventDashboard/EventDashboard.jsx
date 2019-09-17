@@ -21,7 +21,7 @@ const actions = {
 };
 
 const mapState = state => ({
-	events: state.events,
+	events: state.events.events,
 	loading: state.async.loading,
 	activities: state.firestore.ordered.activity
 });
@@ -71,6 +71,7 @@ class EventDashboard extends Component {
 		const { moreEvents, loadedEvents } = this.state;
 		if (this.state.loadingInitial)
 			return <LoadingComponent />;
+		
 		return (
 			<div>
 				<Grid>

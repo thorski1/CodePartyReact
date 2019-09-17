@@ -242,6 +242,7 @@ class EventForm extends Component {
 							>
 								Submit
 							</Button>
+
 							<Button
 								onClick={
 									initialValues.id
@@ -256,19 +257,21 @@ class EventForm extends Component {
 							>
 								Cancel
 							</Button>
-							<Button
-								type="button"
-								color={event.cancelled ? "green" : "red"}
-								floated="right"
-								content={
-									event.cancelled
-										? "Reactivate event"
-										: "Cancel event"
-								}
-								onClick={() =>
-									cancelToggle(!event.cancelled, event.id)
-								}
-							></Button>
+							{event.id && (
+								<Button
+									type="button"
+									color={event.cancelled ? "green" : "red"}
+									floated="right"
+									content={
+										event.cancelled
+											? "Reactivate event"
+											: "Cancel event"
+									}
+									onClick={() =>
+										cancelToggle(!event.cancelled, event.id)
+									}
+								></Button>
+							)}
 						</Form>
 					</Segment>
 				</Grid.Column>

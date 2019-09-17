@@ -29,7 +29,7 @@ const mapState = (state, ownProps) => {
 	return {
 		profile,
 		userUid,
-		events: state.events,
+		events: state.events.userEvents,
 		eventsLoading: state.async.loading,
 		auth: state.firebase.auth,
 		photos: state.firestore.ordered.photos,
@@ -46,7 +46,6 @@ class UserDetailedPage extends Component {
 		let events = await this.props.getUserEvents(
 			this.props.userUid
 		);
-		console.log(events);
 	}
 
 	changeTab = (e, data) => {

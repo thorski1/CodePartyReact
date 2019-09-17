@@ -66,10 +66,11 @@ const RegisterForm = ({
 						fluid
 						size="large"
 						color="teal"
+						loading={submitting}
 					>
 						Register
 					</Button>
-					<Divider horizantal>Or</Divider>
+					<Divider horizontal>Or</Divider>
 					<SocialLogin />
 				</Segment>
 			</Form>

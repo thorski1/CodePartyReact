@@ -21,7 +21,8 @@ const LoginForm = ({
 	login,
 	handleSubmit,
 	error,
-	socialLogin
+	socialLogin,
+	submitting
 }) => {
 	return (
 		<Form
@@ -47,7 +48,12 @@ const LoginForm = ({
 						{error}
 					</Label>
 				)}
-				<Button fluid size="large" color="teal">
+				<Button
+					fluid
+					size="large"
+					color="teal"
+					loading={submitting}
+				>
 					Login
 				</Button>
 				<Divider horizantal>Or</Divider>
