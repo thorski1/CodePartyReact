@@ -13,7 +13,6 @@ import {
 	Switch,
 	withRouter
 } from "react-router-dom";
-import TestComponent from "../../features/testarea/TestComponent";
 import ModalManager from "../../features/modals/ModalManager";
 import { UserIsAuthenticated } from "../../features/auth/authWrapper";
 import NotFound from "./NotFound";

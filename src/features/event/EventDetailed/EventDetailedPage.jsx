@@ -136,7 +136,8 @@ export default compose(
 	withFirestore,
 	connect(
 		mapState,
-		actions
+		actions,
+		
 	),
 	firebaseConnect(props => [
 		`event_chat/${props.match.params.id}`

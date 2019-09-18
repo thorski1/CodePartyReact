@@ -12,7 +12,12 @@ import UserDetailedEvents from "./UserDetailedEvents";
 import UserDetailedDescription from "./UserDetailedDescription";
 import { userDetailedQuery } from "../userQueries";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
-import { getUserEvents } from "../userActions";
+import {
+	getUserEvents,
+	followUser,
+	unfollowUser
+} from "../userActions";
+import { compose } from "redux";
 
 const mapState = (state, ownProps) => {
 	let userUid = null;
@@ -33,12 +38,15 @@ const mapState = (state, ownProps) => {
 		eventsLoading: state.async.loading,
 		auth: state.firebase.auth,
 		photos: state.firestore.ordered.photos,
-		requesting: state.firestore.status.requesting
+		requesting: state.firestore.status.requesting,
+		following: state.firestore.ordered.following
 	};
 };
 
 const actions = {
-	getUserEvents
+	getUserEvents,
+	followUser,
+	unfollowUser
 };
 
 class UserDetailedPage extends Component {
@@ -63,18 +71,26 @@ class UserDetailedPage extends Component {
 			match,
 			requesting,
 			events,
-			eventsLoading
+			eventsLoading,
+			followUser,
+			following,
+			unfollowUser
 		} = this.props;
 		const isCurrentUser = auth.uid === match.params.id;
 		const loading = Object.values(requesting).some(
 			a => a === true
 		);
+		const isFollowing = !isEmpty(following);
 		if (loading) return <LoadingComponent />;
 		return (
 			<Grid>
 				<UserDetailedHeader profile={profile} />
 				<UserDetailedDescription profile={profile} />
 				<UserDetailedSidebar
+					isFollowing={isFollowing}
+					unfollowUser={unfollowUser}
+					profile={profile}
+					followUser={followUser}
 					isCurrentUser={isCurrentUser}
 				/>
 				{photos && <UserDetailedPhotos photos={photos} />}
@@ -88,11 +104,12 @@ class UserDetailedPage extends Component {
 	}
 }
 
-export default connect(
-	mapState,
-	actions
-)(
-	firestoreConnect((auth, userUid) =>
-		userDetailedQuery(auth, userUid)
-	)(UserDetailedPage)
-);
+export default compose(
+	connect(
+		mapState,
+		actions
+	),
+	firestoreConnect((auth, userUid, match) =>
+		userDetailedQuery(auth, userUid, match)
+	)
+)(UserDetailedPage);
